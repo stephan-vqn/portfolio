@@ -1,0 +1,2097 @@
+/* =========================================================
+	TABLE DES MATIÈRES
+	---------------------------------------------------------
+	1) Variables CSS
+	2) Reset & base
+	3) Typographie
+	4) Liens
+	5) Boutons
+		5.1) Bouton : retour en haut
+	6) Composants réutilisables
+		6.1) Conteneurs
+		6.2) Séparateurs
+		6.3) Cartes (base)
+		6.4) Badges / chips
+		6.5) Social icons
+		6.6) Icônes & médias (outils, pictos)
+	7) Effets communs
+		7.1) Base (transitions)
+		7.2) Hover
+		7.3) Focus (clavier)
+		7.4) Reveal (scroll)
+	8) Header
+	9) Navigation
+		9.1) Variables locales (nav)
+		9.2) Barre de navigation
+		9.3) Zone gauche (logo)
+		9.4) Liens de navigation
+		9.5) Burger (mobile)
+	10) Sections & layout
+	11) Hero
+	12) À propos
+	13) Recherche de stage
+	14) Projets
+	15) Piliers & valeurs
+	16) Compétences
+		16.1) Section
+		16.2) Grille
+		16.3) Carte
+		16.4) En-tête de carte
+		16.5) Liste d’outils
+		16.6) Infos outil
+		16.7) Équilibrage desktop (hauteur cartes)
+	17) Veille / soft skills / compétences transversales
+		17.1) Wrapper
+		17.2) Cartes
+		17.3) Titres & sous-titres
+		17.4) Blocs internes
+		17.5) Chips (uniquement “En veille”)
+		17.6) Ajustements espacements (soft stack)
+	18) Parcours
+		18.1) Espacements de sections
+		18.2) Formation (timeline)
+		18.3) Expériences
+			18.3.1) Équilibrage desktop (hauteur cartes)
+			18.3.2) Cas impair : dernière carte centrée
+	19) Contact & widgets
+		19.1) Contact
+		19.2) Widget météo
+			19.2.1) Carte
+			19.2.2) Header
+			19.2.3) Contenu
+			19.2.4) Placeholder
+	20) Footer
+		20.1) Liens du plan du site
+		20.2) Séparateur & copyright
+		20.3) Social icons
+	21) Page clean
+	22) Responsive
+		22.1) Tablet (≥ 48rem)
+		22.2) Desktop (≥ 64rem)
+		22.3) Mobile (≤ 47.9375rem) : navigation + footer
+	23) Reduced motion
+	24) Focus visible
+   ========================================================= */
+
+
+/* =========================================================
+	1) Variables CSS
+   ========================================================= */
+:root{
+	/* Couleurs */
+	--color-bg: #f9f6f1;
+
+	--color-text: #3b3533;
+	--color-text-muted: #746f6c;
+
+	--color-accent: #9a5d4a;
+	--color-accent-hover: #7a4d3a;
+
+	--color-secondary: #4b5e53;
+	--color-secondary-hover: #3b4e43;
+
+	--color-surface: #f0ece8;
+	--color-surface-alt: #fbf9f5;
+	--color-media-bg: #e5e1dc;
+
+	--color-border-soft: #cac6c2;
+	--color-border-strong: #908c88;
+
+	/* Typographie */
+	--font-heading: "Lexend", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-text: "Lexend", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+	/* Espacements */
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2rem;
+	--space-2xl: 3rem;
+	--space-3xl: 4rem;
+	--space-4xl: 6rem;
+
+	/* Rayons */
+	--radius-sm: 0.5rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
+	--radius-round: 1.5rem;
+	--radius-full: 999rem;
+
+	/* Tailles & layout */
+	--max-page: 80rem;
+	--max-content: 75rem;
+	--max-narrow: 55rem;
+	--max-text: 75ch;
+
+	/* Composants */
+	--tool-icon: 1.625rem;
+	--social-size: 2.75rem;
+	--project-thumb: 12.5rem;
+
+	/* Transitions & effets */
+	--transition-fast: 0.2s ease;
+	--transition-normal: 0.3s ease;
+
+	--shadow-hover: 0 0.5rem 1rem rgba(59, 53, 51, 0.10);
+	--shadow-focus: 0 0 0 0.25rem rgba(154, 93, 74, 0.18);
+	--shadow-soft: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+
+	--border-faint: rgba(202, 198, 194, 0.55);
+
+	/* Social buttons (valeurs par défaut) */
+	--social-bg: var(--color-surface-alt);
+	--social-fg: var(--color-text-muted);
+	--social-border: var(--color-border-soft);
+
+	--social-bg-hover: var(--color-accent);
+	--social-fg-hover: var(--color-bg);
+	--social-border-hover: var(--color-accent);
+
+	/* Décor de fond (body::before) */
+	--bg-fade-strong: rgba(249, 246, 241, 0.95);
+	--bg-fade-none: rgba(249, 246, 241, 0.00);
+	--bg-dot: rgba(59, 53, 51, 0.035);
+	--bg-grid: rgba(59, 53, 51, 0.03);
+	
+	/* Décor header (header::before) */
+	--header-fade-strong: rgba(251, 249, 245, 0.95);
+	--header-fade-none: rgba(251, 249, 245, 0.00);
+	--header-dot: rgba(59, 53, 51, 0.03);
+	--header-grid: rgba(59, 53, 51, 0.03);
+}
+
+
+/* =========================================================
+	2) Reset & base
+   ========================================================= */
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	margin: 0;
+	font-family: var(--font-text);
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	position: relative;
+	z-index: 0;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+ul[role="list"],
+ol[role="list"]{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* =========================================================
+	2.1) Décor de fond
+   ========================================================= */
+body::before{
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+
+	background-image:
+		linear-gradient(
+			to right,
+			var(--bg-fade-strong) 0%,
+			var(--bg-fade-none) 18%,
+			var(--bg-fade-none) 82%,
+			var(--bg-fade-strong) 100%
+		),
+		radial-gradient(circle at 1px 1px, var(--bg-dot) 1px, transparent 0),
+		linear-gradient(to right, var(--bg-grid) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--bg-grid) 1px, transparent 1px);
+
+	background-size:
+		100% 100%,
+		24px 24px,
+		96px 96px,
+		96px 96px;
+
+	background-position: center;
+}
+
+/* =========================================================
+	3) Typographie
+   ========================================================= */
+
+/* Titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: var(--font-heading);
+	font-weight: 600;
+	line-height: 1.2;
+	margin: 0 0 var(--space-md);
+}
+
+h1{ font-size: 3rem; }
+h2{ font-size: 2rem; }
+
+h3{
+	font-size: 1.5rem;
+	margin-bottom: var(--space-sm);
+}
+
+h4{
+	font-size: 1.25rem;
+	margin-bottom: var(--space-sm);
+}
+
+/* Texte courant */
+p{
+	margin: 0 0 var(--space-md);
+	max-width: var(--max-text);
+}
+
+/* Petits textes */
+.small,
+small{
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+	4) Liens
+   ========================================================= */
+a{
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover{
+	color: var(--color-accent-hover);
+}
+
+/* =========================================================
+	5) Boutons
+   ========================================================= */
+
+/* Base */
+.btn{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+
+	padding: var(--space-sm) var(--space-lg);
+	min-height: 2.75rem;
+	min-width: 2.75rem;
+
+	border-radius: var(--radius-round);
+	border: 1px solid transparent;
+
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+	
+	
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+
+	transition:
+		transform var(--transition-fast),
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.btn:focus-visible{
+	outline: none;
+	box-shadow: var(--shadow-focus);
+}
+
+/* Variantes */
+.btn-primary{
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+	color: var(--color-bg);
+}
+
+.btn-secondary{
+	background-color: var(--color-secondary);
+	border-color: var(--color-secondary);
+	color: var(--color-bg);
+}
+
+/* Hover (mutualisé) */
+.btn-primary:hover,
+.btn-secondary:hover{
+	color: var(--color-bg);
+	transform: translateY(-0.125rem);
+}
+
+/* Hover (couleurs spécifiques) */
+.btn-primary:hover{
+	background-color: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+.btn-secondary:hover{
+	background-color: var(--color-secondary-hover);
+	border-color: var(--color-secondary-hover);
+}
+
+
+/* =========================================================
+	5.1) Bouton : retour en haut
+   ========================================================= */
+.back-to-top{
+	position: fixed;
+	bottom: var(--space-xl);
+	right: var(--space-xl);
+	z-index: 1000;
+
+	width: 3rem;   /* 48px */
+	height: 3rem;  /* 48px */
+	border-radius: 50%;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--color-surface);
+	color: var(--color-text);
+
+	border: 1px solid var(--color-border-soft);
+	box-shadow: var(--shadow-soft);
+
+	font-size: 1.25rem;
+	line-height: 1;
+	cursor: pointer;
+
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(0.5rem);
+
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease,
+		visibility 0.25s ease;
+}
+
+/* État visible */
+.back-to-top.is-visible{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/* Hover / focus */
+.back-to-top:hover,
+.back-to-top:focus-visible{
+	background-color: var(--color-surface-alt);
+	transform: translateY(-0.125rem);
+}
+
+/* Accessibilité : focus clavier */
+.back-to-top:focus-visible{
+	outline: 2px solid var(--color-accent);
+	outline-offset: 0.125rem;
+}
+
+/* Icône flèche */
+.back-to-top-icon{
+	display: block;
+	transition: transform 0.25s ease;
+}
+
+/* Micro-animation au hover */
+.back-to-top:hover .back-to-top-icon,
+.back-to-top:focus-visible .back-to-top-icon{
+	transform: translateY(-0.0625rem);
+}
+
+
+/* =========================================================
+	6) Composants réutilisables
+   ========================================================= */
+
+/* 6.1) Conteneurs */
+main{
+	max-width: var(--max-page);
+	margin: 0 auto;
+}
+
+.section-content,
+.nav-container{
+	max-width: var(--max-content);
+	margin: 0 auto;
+	padding: 0 var(--space-xl);
+}
+
+/* 6.2) Séparateurs */
+.separator{
+	display: block;
+	pointer-events: none;
+}
+
+/* Alias conservé : .soft-divider--horizontal */
+.separator--horizontal,
+.soft-divider--horizontal{
+	width: 100%;
+	max-width: 15rem;
+	height: 1px;
+	margin: var(--space-sm) auto;
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--color-border-soft) 25%,
+		var(--color-border-soft) 75%,
+		transparent
+	);
+}
+
+.separator--vertical{
+	width: 1px;
+	height: 100%;
+	min-height: 6rem;
+	margin: 0 var(--space-md);
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		var(--color-border-soft) 25%,
+		var(--color-border-soft) 75%,
+		transparent
+	);
+}
+
+/* 6.3) Cartes (base) */
+:is(
+	.card-stage,
+	.card-projet,
+	.card-pilier,
+	.card-valeur,
+	.card-atelier,
+	.card-soft,
+	.card-experience,
+	.timeline-item,
+	.contact-wrapper
+){
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border-soft);
+}
+
+/* Élément spécifique (évite override inutile) */
+.nav-bento{
+	border: 1px solid var(--color-border-soft);
+	border-radius: var(--radius-round);
+}
+
+/* 6.4) Badges / chips */
+:is(
+	.timeline-badge,
+	.exp-badge,
+	.badge-en-cours,
+	.badge-disponible,
+	.chips li
+){
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-xs);
+	padding: var(--space-xs) var(--space-sm);
+
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--color-border-soft);
+	background-color: var(--color-surface-alt);
+
+	font-size: 0.875rem;
+}
+
+.badge-en-cours{
+	font-size: 0.75rem;
+	color: var(--color-accent);
+}
+
+.badge-disponible,
+.chips li{
+	border-radius: var(--radius-round);
+	padding: var(--space-sm) var(--space-md);
+	font-size: 0.875rem;
+}
+
+/* 6.5) Social media (bulle unique) */
+.social-icons,
+.contact-social{
+	display: flex;
+	gap: var(--space-md);
+	flex-wrap: wrap;
+
+	/* Robustesse si <ul> */
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Base bulle : cible <a> quel que soit le container */
+.social-icons a,
+.contact-social a{
+	width: var(--social-size);
+	height: var(--social-size);
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--social-bg);
+	color: var(--social-fg);
+	border: 1px solid var(--social-border);
+	border-radius: var(--radius-full);
+	text-decoration: none;
+
+	transition:
+		transform var(--transition-fast),
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.social-icons a:hover,
+.contact-social a:hover{
+	background-color: var(--social-bg-hover);
+	color: var(--social-fg-hover);
+	border-color: var(--social-border-hover);
+	transform: translateY(-0.125rem);
+}
+
+.social-icons a:focus-visible,
+.contact-social a:focus-visible{
+	outline: none;
+	box-shadow: var(--shadow-focus);
+}
+
+/* 6.6) Icônes */
+.nav-burger i{ font-size: 1.25rem; }
+
+.atelier-header i{
+	font-size: 1.75rem;
+	color: var(--color-accent);
+}
+
+.contact-localisation i{
+	font-size: 1.25rem;
+	color: var(--color-accent);
+	margin-top: var(--space-xs);
+}
+
+.info-item i{
+	color: var(--color-accent);
+}
+
+/* Icônes outils (images) */
+.logo-outil{
+	width: var(--tool-icon);
+	height: var(--tool-icon);
+	flex: 0 0 var(--tool-icon);
+	object-fit: contain;
+	display: block;
+}
+
+
+/* =========================================================
+	7) Effets communs
+   ========================================================= */
+
+/* 7.1) Base : transitions homogènes */
+:is(
+	.card-stage,
+	.card-projet,
+	.card-pilier,
+	.card-valeur,
+	.card-atelier,
+	.card-soft,
+	.card-experience,
+	.timeline-item,
+	.contact-wrapper
+){
+	transition:
+		transform var(--transition-fast),
+		box-shadow var(--transition-fast),
+		border-color var(--transition-fast),
+		background-color var(--transition-fast);
+
+	will-change: transform;
+}
+
+/* 7.2) Hover : soulèvement + ombre */
+:is(
+	.card-stage,
+	.card-projet,
+	.card-pilier,
+	.card-valeur,
+	.card-atelier,
+	.card-soft,
+	.card-experience,
+	.timeline-item,
+	.contact-wrapper
+):hover{
+	transform: translateY(-0.25rem);
+	box-shadow: var(--shadow-hover);
+}
+
+/* 7.3) Focus clavier via éléments internes */
+:is(
+	.card-stage,
+	.card-projet,
+	.card-pilier,
+	.card-valeur,
+	.card-atelier,
+	.card-soft,
+	.card-experience,
+	.timeline-item,
+	.contact-wrapper
+):focus-within{
+	box-shadow: var(--shadow-hover), var(--shadow-focus);
+}
+
+/* 7.4) Reveal (animation d’apparition) */
+.reveal{
+	will-change: transform, opacity;
+}
+
+@supports (animation-timeline: view()){
+	.reveal{
+		opacity: 0;
+		transform: translateY(0.75rem);
+		animation: reveal-in 0.7s ease both;
+		animation-timeline: view();
+		animation-range: entry 0% cover 30%;
+	}
+
+	@keyframes reveal-in{
+		to{
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+/* =========================================================
+	8) Header
+   ========================================================= */
+header{
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	padding: var(--space-md) 0;
+	background: transparent;
+	isolation: isolate;
+}
+
+/* Décor du header */
+header::before{
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+
+	opacity: 0.18;
+
+	background-image:
+		linear-gradient(
+			to right,
+			var(--header-fade-strong) 0%,
+			var(--header-fade-none) 18%,
+			var(--header-fade-none) 82%,
+			var(--header-fade-strong) 100%
+		),
+		radial-gradient(circle at 1px 1px, var(--header-dot) 1px, transparent 0),
+		linear-gradient(to right, var(--header-grid) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--header-grid) 1px, transparent 1px);
+
+	background-size:
+		100% 100%,
+		24px 24px,
+		96px 96px,
+		96px 96px;
+
+	background-position: center;
+}
+
+
+/* =========================================================
+	9) Navigation
+   ========================================================= */
+
+/* 9.1) Variables locales (nav) */
+.nav-bento{
+	/* Fallback si color-mix n’est pas supporté */
+	--nav-bg: rgba(249, 246, 241, 0.86);
+
+	/* Version basée sur la variable (même rendu) */
+	--nav-bg: color-mix(in srgb, var(--color-bg) 86%, transparent);
+}
+
+
+/* 9.2) Barre de navigation */
+.nav-bento{
+	position: relative;
+	max-width: var(--max-page);
+	margin: 0 auto var(--space-md);
+	padding: var(--space-md);
+
+	background-color: var(--nav-bg);
+	border-color: var(--border-faint);
+
+	-webkit-backdrop-filter: blur(0.875rem) saturate(1.1);
+	backdrop-filter: blur(0.875rem) saturate(1.1);
+}
+
+.nav-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-lg);
+}
+
+/* 9.3) Zone gauche (logo) */
+.nav-left{
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.logo{
+	font-family: var(--font-heading);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-accent);
+}
+
+.logo-text{
+	font-family: var(--font-heading);
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-text);
+	letter-spacing: 0.1em;
+}
+
+/* Hover/focus : groupe logo */
+.nav-left:hover .logo-text,
+.nav-left:focus-within .logo-text{
+	color: var(--color-accent);
+}
+
+/* 9.4) Liens de navigation */
+.nav-right{
+	display: flex;
+	align-items: center;
+	gap: var(--space-xl);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-right a{
+	color: var(--color-text);
+	font-size: 1rem;
+	font-weight: 500;
+	padding: var(--space-sm) 0;
+	text-transform: uppercase;
+}
+
+.nav-right a:hover{
+	color: var(--color-accent);
+}
+
+/* =========================================================
+	9.5) Burger (mobile)
+   ========================================================= */
+.nav-burger{
+	display: none;
+
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: var(--radius-full);
+
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--color-surface);
+	border: 1px solid var(--border-faint);
+	color: var(--color-text);
+
+	cursor: pointer;
+
+	transition:
+		transform var(--transition-fast),
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast);
+}
+
+.nav-burger:hover{
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+	color: var(--color-bg);
+	transform: translateY(-0.125rem);
+}
+
+.nav-burger:focus-visible{
+	outline: none;
+	box-shadow: var(--shadow-focus);
+}
+
+
+/* =========================================================
+	10) Sections & layout
+   ========================================================= */
+section{
+	padding: var(--space-3xl) 0;
+}
+
+/* Note : .section-content est déjà défini dans les conteneurs réutilisables
+   (padding horizontal + max-width). Éviter la redondance ici. */
+
+.section-subtitle{
+	color: var(--color-text-muted);
+	font-size: 1.125rem;
+	margin-bottom: var(--space-xl);
+}
+
+.section-cta,
+.card-cta{
+	text-align: center;
+}
+
+
+/* =========================================================
+	11) Hero
+   ========================================================= */
+#hero{
+	position: relative;
+	padding: var(--space-4xl) 0;
+	text-align: center;
+	background-color: var(--color-bg);
+	overflow: hidden;
+}
+
+/* 11.1) Halo central (fond) */
+#hero::before{
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+
+	background: radial-gradient(
+		circle at center,
+		var(--color-surface-alt) 0%,
+		transparent 65%
+	);
+}
+
+/* 11.2) Bordure basse en dégradé */
+#hero::after{
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	pointer-events: none;
+
+	width: 80%;
+	height: 1px;
+
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--border-faint),
+		transparent
+	);
+}
+
+/* 11.3) Contenu au-dessus du décor */
+#hero > *{
+	position: relative;
+	z-index: 1;
+}
+
+#hero h1{
+	letter-spacing: 0.04em;
+}
+
+/* 11.4) Contenu */
+.hero-container{
+	max-width: 50rem;
+	margin: 0 auto;
+	padding: 0 var(--space-xl);
+}
+
+/* Badge (ajustements spécifiques au hero) */
+.badge-disponible{
+	margin-bottom: var(--space-xl);
+	color: var(--color-secondary);
+	background-color: var(--color-surface-alt);
+}
+
+/* Indicateur (animation) */
+.point-clignotant{
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: var(--color-secondary);
+	border-radius: var(--radius-full);
+	animation: clignoter 2s infinite;
+}
+
+@keyframes clignoter{
+	0%,
+	100%{ opacity: 1; }
+	50%{ opacity: 0.3; }
+}
+
+/* 11.5) Textes */
+.hero-subtitle{
+	font-size: 1.25rem;
+	color: var(--color-text-muted);
+	margin-bottom: var(--space-lg);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.hero-accroche{
+	font-size: 1.125rem;
+	line-height: 1.7;
+	max-width: 60ch;
+	margin: 0 auto var(--space-xl);
+}
+
+/* 11.6) CTA */
+.hero-cta{
+	display: flex;
+	justify-content: center;
+	gap: var(--space-md);
+	flex-wrap: wrap;
+}
+
+
+/* =========================================================
+	12) À propos
+   ========================================================= */
+.a-propos-layout{
+	--photo-border-hover: var(--color-border-soft);
+
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2xl);
+	margin-bottom: var(--space-2xl);
+}
+
+.social-title{
+	color: var(--color-accent);
+	margin: var(--space-xl) 0 var(--space-md);
+}
+
+.a-propos-photo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.photo-profil{
+	width: 100%;
+	max-width: 25rem;
+	aspect-ratio: 1024 / 1536;
+
+	object-fit: cover;
+	object-position: center;
+
+	border-radius: var(--radius-md);
+	border: 1px solid var(--color-border-soft);
+	background-color: var(--color-surface);
+
+	transition:
+		transform var(--transition-fast),
+		box-shadow var(--transition-fast),
+		border-color var(--transition-fast);
+}
+
+.photo-profil:hover{
+	transform: translateY(-0.25rem);
+	box-shadow: var(--shadow-hover);
+	border-color: var(--photo-border-hover);
+}
+
+
+/* =========================================================
+	13) Recherche de stage
+   ========================================================= */
+.card-stage{
+	background-color: var(--color-surface);
+	padding: var(--space-xl);
+	max-width: 37.5rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.card-stage-header{
+	display: flex;
+	justify-content: center;
+	margin-bottom: var(--space-md);
+}
+
+.icon-briefcase{
+	width: 4rem;
+	height: 4rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: var(--radius-full);
+	background-color: var(--color-accent);
+	color: var(--color-bg);
+
+	font-size: 2rem;
+}
+
+/* Chips */
+.chips{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--space-sm);
+
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--space-lg);
+}
+
+/* Infos pratiques */
+.infos-pratiques{
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+
+	margin-bottom: var(--space-lg);
+	align-items: flex-start;
+}
+
+.info-item{
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	font-size: 0.875rem;
+}
+
+/* =========================================================
+	14) Projets
+   ========================================================= */
+.projets-grid{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	margin-bottom: var(--space-2xl);
+
+	align-items: stretch;
+	grid-auto-rows: 1fr;
+}
+
+/* Carte projet */
+.card-projet{
+	--project-media-bg: var(--color-media-bg);
+
+	background-color: var(--color-surface);
+	overflow: hidden;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+/* Badge */
+.badge-en-cours{
+	position: absolute;
+	top: var(--space-md);
+	right: var(--space-md);
+	z-index: 10;
+}
+
+/* Visuel projet (bannière pleine largeur) */
+.card-projet{
+	--project-media-ratio: 16 / 9;
+}
+
+.projet-placeholder,
+.projet-thumb,
+.projet-image{
+	width: 100%;
+	aspect-ratio: var(--project-media-ratio);
+	margin: 0;
+
+	background-color: var(--project-media-bg);
+	object-fit: cover;
+	display: block;
+
+	/* Intégré à la card (coins déjà gérés par overflow:hidden) */
+	border: 0;
+	border-bottom: 1px solid var(--color-border-soft);
+	border-radius: 0;
+}
+
+.projet-placeholder{
+	display: grid;
+	place-items: center;
+	color: var(--color-text-muted);
+}
+
+/* Contenu */
+.projet-content{
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.projet-type{
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	margin-bottom: var(--space-sm);
+}
+
+.projet-objectif{
+	color: var(--color-text-muted);
+	margin-bottom: var(--space-md);
+}
+
+.projet-cta{
+	text-align: center;
+	margin-top: auto;
+}
+
+/* Projets : images dans les placeholders */
+.projet-placeholder {
+  overflow: hidden;
+  /* Si ton placeholder n'a PAS déjà une hauteur, décommente :
+  aspect-ratio: 16 / 9;
+  */
+}
+
+.projet-placeholder img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* =========================================================
+	15) Piliers & valeurs
+   ========================================================= */
+
+/* 15.1) Grilles */
+.piliers-grid,
+.valeurs-grid{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	margin-bottom: var(--space-2xl);
+
+	align-items: stretch;
+	grid-auto-rows: 1fr;
+}
+
+/* 15.2) Cartes */
+.card-pilier,
+.card-valeur{
+	padding: var(--space-xl);
+	text-align: center;
+
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-pilier{
+	background-color: var(--color-surface);
+}
+
+.card-valeur{
+	background-color: var(--color-surface-alt);
+}
+
+/* 15.3) Icônes */
+.pilier-icon,
+.valeur-icon{
+	display: flex;
+	justify-content: center;
+
+	font-size: 2.5rem;
+	margin-bottom: var(--space-md);
+	color: var(--color-accent);
+
+	transition: transform var(--transition-fast);
+	will-change: transform;
+}
+
+/* 15.4) Hover */
+.card-pilier:hover .pilier-icon,
+.card-valeur:hover .valeur-icon{
+	transform: scale(1.06);
+}
+
+
+/* =========================================================
+	16) Compétences
+   ========================================================= */
+
+/* 16.1) Section */
+.atelier-section{
+	margin-bottom: var(--space-2xl);
+}
+
+.subsection-subtitle{
+	color: var(--color-text-muted);
+	font-size: 1rem;
+	margin-bottom: var(--space-xl);
+}
+
+/* 16.2) Grille (évite les cartes “vides” en supprimant l’étirement) */
+.atelier-grid{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+
+	/* Plus d’air entre le titre “Atelier” et la grille */
+	margin-top: var(--space-lg);
+
+	/* Empêche l’étirement vertical : les cartes prennent la hauteur de leur contenu */
+	align-items: start;
+}
+
+/* 16.3) Carte */
+.card-atelier{
+	/* Fallback */
+	--atelier-row-hover: rgba(154, 93, 74, 0.06);
+
+	/* Accent en opacité très faible (~6%) */
+	--atelier-row-hover: color-mix(in srgb, var(--color-accent) 6%, transparent);
+
+	background-color: var(--color-surface);
+	padding: var(--space-lg);
+
+	/* Permet une structure plus “pleine” et lisible */
+	display: flex;
+	flex-direction: column;
+
+	/* Supprime la cause principale du vide */
+	height: auto;
+}
+
+/* 16.4) En-tête de carte (mieux séparé du contenu) */
+.atelier-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+	flex-wrap: wrap;
+	text-align: center;
+
+	margin-bottom: var(--space-lg);
+	padding-bottom: var(--space-sm);
+	border-bottom: 1px solid var(--color-border-soft);
+}
+
+/* 16.5) Liste d’outils */
+.outils-list{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.outils-list li{
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+
+	/* Moins “vide” : padding horizontal + densité verticale mieux équilibrée */
+	padding: var(--space-sm) var(--space-sm);
+
+	border-bottom: 1px solid var(--color-border-soft);
+	border-radius: var(--radius-sm);
+
+	transition: background-color var(--transition-fast);
+}
+
+.outils-list li:last-child{
+	border-bottom: none;
+}
+
+.outils-list li:hover{
+	background-color: var(--atelier-row-hover);
+}
+
+.outils-list li:focus-within{
+	background-color: var(--atelier-row-hover);
+}
+
+/* 16.6) Infos outil */
+.outil-info{
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	min-width: 0;
+	flex: 1;
+}
+
+.outil-nom{
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.outil-desc{
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+}
+
+/* Équilibrage visuel : même hauteur des cartes en layout multi-colonnes */
+@media (min-width: 48rem){
+	.atelier-grid{
+		align-items: stretch;
+		grid-auto-rows: 1fr;
+	}
+
+	.card-atelier{
+		height: 100%;
+	}
+}
+
+
+/* =========================================================
+	17) Veille / soft skills / compétences transversales
+   ========================================================= */
+
+/* 17.1) Wrapper */
+.veille-soft-wrapper{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+
+	max-width: 61.25rem;
+	margin: 0 auto;
+}
+
+.veille-soft-wrapper--tight{
+	margin-top: 0;
+}
+
+/* 17.2) Cartes */
+.veille-soft-wrapper > .card-soft{
+	background-color: var(--color-surface);
+	padding: var(--space-lg);
+	min-width: 0;
+
+	/* Évite les cartes “vides” si la grille étire */
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.card-soft--soft-stack{
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
+/* 17.3) Titres & sous-titres */
+.veille-soft-wrapper .card-soft :is(h3, h4){
+	text-align: center;
+	margin-bottom: var(--space-sm);
+}
+
+.veille-soft-wrapper .card-soft .subsection-subtitle{
+	text-align: center;
+	margin-bottom: var(--space-md);
+}
+
+/* 17.4) Blocs internes */
+.soft-block{
+	text-align: center;
+}
+
+/* 17.5) Chips (uniquement dans la card "En veille") */
+.veille-soft-wrapper > .card-soft:not(.card-soft--soft-stack) .chips{
+	flex-direction: column;
+	align-items: center;
+}
+
+.veille-soft-wrapper > .card-soft:not(.card-soft--soft-stack) .chips li{
+	width: 65%;
+	max-width: 22rem;
+	justify-content: center;
+}
+
+/* 17.6) Ajustements fins d'espacements (card Soft skills / Compétences transversales) */
+.veille-soft-wrapper .card-soft--soft-stack :is(h3, h4){
+	margin-bottom: var(--space-md);
+}
+
+.veille-soft-wrapper .card-soft--soft-stack .chips{
+	margin-bottom: var(--space-md);
+}
+
+.veille-soft-wrapper .card-soft--soft-stack :is(.separator--horizontal, .soft-divider--horizontal){
+	margin: var(--space-xs) auto;
+}
+
+
+/* =========================================================
+	18) Parcours
+   ========================================================= */
+
+/* 18.1) Espacements de sections */
+.formation-section{
+	margin-bottom: var(--space-3xl);
+}
+
+/* Plus d’air après les titres de sous-sections (Formation / Expériences) */
+.formation-section > :is(h2, h3, h4) + .timeline,
+.formation-section > :is(h2, h3, h4) + .experiences-grid{
+	margin-top: var(--space-lg);
+}
+
+
+/* =========================================================
+	18.2) Formation (timeline) - centrée
+   ========================================================= */
+.timeline{
+	/* Réglages locaux (timeline) */
+	--timeline-max: 45rem;
+	--timeline-line-x: 50%;
+
+	position: relative;
+
+	display: grid;
+	gap: var(--space-lg);
+
+	max-width: var(--timeline-max);
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Ligne verticale centrée */
+.timeline::before{
+	content: "";
+	position: absolute;
+	left: var(--timeline-line-x);
+	top: 0;
+	bottom: 0;
+
+	width: 1px;
+	transform: translateX(-0.5px);
+	pointer-events: none;
+
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		var(--color-border-soft) 10%,
+		var(--color-border-soft) 90%,
+		transparent
+	);
+}
+
+/* Entrée */
+.timeline-item{
+	background-color: var(--color-surface);
+	position: relative;
+
+	padding: var(--space-md) var(--space-lg);
+	text-align: center;
+}
+
+/* Badge date */
+.timeline-badge{
+	color: var(--color-secondary);
+	margin-bottom: var(--space-sm);
+}
+
+/* Contexte (ex: distanciel, alternance, etc.) */
+.timeline-contexte{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+	margin-top: var(--space-sm);
+	margin-bottom: var(--space-sm);
+	color: var(--color-text-muted);
+	text-align: center;
+}
+
+.timeline-contexte i{
+	color: var(--color-text-muted);
+}
+
+
+/* Établissement : centré */
+.etablissement{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+
+	/* Neutralise le max-width hérité + centre le bloc */
+	max-width: none;
+	width: fit-content;
+	margin: 0 auto;
+
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+/* Icône localisation (Formation) */
+.etablissement i{
+	color: var(--color-accent);
+}
+
+
+/* =========================================================
+	18.3) Expériences
+   ========================================================= */
+.experiences-grid{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-xl);
+	
+	/* Espace après le titre “Expériences” (plus robuste que le sélecteur sibling) */
+	margin-top: var(--space-lg);
+
+	/* Évite les cartes “vides” si une expérience est plus courte */
+	align-items: start;
+}
+
+.card-experience{
+	background-color: var(--color-surface);
+	padding: var(--space-lg);
+	height: auto;
+}
+
+.exp-badge{
+	color: var(--color-secondary);
+	margin-bottom: var(--space-md);
+}
+
+.exp-header{
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-sm);
+}
+
+.exp-icon{
+	font-size: 1.5rem;
+	color: var(--color-accent);
+}
+
+.exp-contexte,
+.exp-lieu{
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+	margin-bottom: var(--space-xs);
+}
+
+.exp-lieu{
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+}
+
+/* Icône localisation (Expériences) */
+.exp-lieu i{
+	color: var(--color-accent);
+}
+
+.exp-entreprise{
+	font-weight: 600;
+	margin-bottom: var(--space-sm);
+}
+
+.exp-missions-titre{
+	font-weight: 600;
+	margin: var(--space-md) 0 var(--space-sm);
+}
+
+.exp-missions{
+	list-style: disc;
+	padding-left: var(--space-lg);
+	margin: 0;
+}
+
+.exp-missions li{
+	margin-bottom: var(--space-sm);
+	line-height: 1.5;
+}
+
+/* Équilibrage visuel : desktop (2 colonnes) */
+@media (min-width: 48rem){
+	.experiences-grid{
+		align-items: stretch;
+		grid-auto-rows: 1fr;
+	}
+
+	.card-experience{
+		height: 100%;
+	}
+
+	/* Cas impair : dernière carte centrée (évite le vide à droite) */
+	.experiences-grid > .card-experience:last-child:nth-child(odd){
+		grid-column: 1 / -1;
+		justify-self: center;
+
+		width: 100%;
+		max-width: calc((100% - var(--space-xl)) / 2);
+	}
+}
+
+
+/* =========================================================
+	19) Contact & widgets
+   ========================================================= */
+
+/* 19.1) Contact */
+.contact-wrapper{
+	max-width: var(--max-narrow);
+	margin: 0 auto;
+	padding: var(--space-2xl);
+
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border-soft);
+	border-radius: var(--radius-md);
+
+	/* Note :
+	   Pas de transition/hover ici.
+	   Le wrapper hérite du style unifié dans "7) Effets communs". */
+}
+
+.contact-container{
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-2xl);
+	align-items: start;
+}
+
+.contact-center{
+	text-align: center;
+}
+
+.contact-left h3{
+	margin-bottom: var(--space-md);
+}
+
+.contact-left p{
+	margin-bottom: var(--space-xl);
+}
+
+.contact-social{
+	justify-content: center;
+	margin-bottom: var(--space-xl);
+}
+
+
+/* =========================================================
+	19.2) Widget météo
+   ========================================================= */
+
+/* 19.2.1) Carte (rendu identique, tokens locaux) */
+#weather-widget.widget-card{
+	--weather-card-border: rgba(0, 0, 0, 0.12);
+	--weather-card-shadow: 0 0.625rem 1.375rem rgba(0, 0, 0, 0.05); /* 10px 22px */
+	--weather-gap-tight: var(--space-xs); /* 4px */
+	--weather-gap: var(--space-sm);       /* 8px */
+
+	background: var(--color-surface-alt);
+	border: 1px solid var(--weather-card-border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--weather-card-shadow);
+
+	/* Option : un peu moins “gonflé” que les autres widgets */
+	padding: var(--space-lg);
+}
+
+/* 19.2.2) Header (centré + localisation) */
+.weather-header{
+	display: grid;
+	gap: var(--weather-gap-tight);
+	justify-items: center;
+	text-align: center;
+	margin-bottom: var(--space-sm);
+}
+
+.weather-title{
+	margin: 0;
+}
+
+.weather-location{
+	display: inline-flex;
+	align-items: center;
+	gap: var(--weather-gap);
+	margin: 0;
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+/* 19.2.3) Contenu : séparation douce (pleine largeur malgré le padding) */
+.weather-content{
+	padding-top: var(--space-sm);
+	border-top: 1px solid var(--color-border-soft);
+
+	margin-left: calc(var(--space-lg) * -1);
+	margin-right: calc(var(--space-lg) * -1);
+	padding-left: var(--space-lg);
+	padding-right: var(--space-lg);
+}
+
+/* 19.2.4) Placeholder */
+.placeholder-text{
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+
+/* =========================================================
+	20) Footer
+   ========================================================= */
+.site-footer{
+	background-color: var(--color-secondary);
+	color: var(--color-bg);
+	padding: var(--space-2xl) 0;
+
+	/* Tokens locaux (footer only) */
+	--footer-link: rgba(249, 246, 241, 0.92);
+	--footer-link: color-mix(in srgb, var(--color-bg) 92%, transparent);
+
+	--footer-link-hover: var(--color-accent);
+
+	--footer-muted: rgba(249, 246, 241, 0.65);
+	--footer-muted: color-mix(in srgb, var(--color-bg) 65%, transparent);
+
+	/* Social (état normal) */
+	--social-bg: var(--color-secondary);
+	--social-fg: var(--color-bg);
+
+	--social-border: rgba(249, 246, 241, 0.35);
+	--social-border: color-mix(in srgb, var(--color-bg) 35%, transparent);
+
+	/* Social (hover inversé) */
+	--social-bg-hover: var(--color-bg);
+	--social-fg-hover: var(--color-secondary);
+
+	--social-border-hover: rgba(249, 246, 241, 0.55);
+	--social-border-hover: color-mix(in srgb, var(--color-bg) 55%, transparent);
+}
+
+
+.site-footer__inner{
+	max-width: var(--max-page);
+	margin: 0 auto;
+	padding: 0 var(--space-md);
+
+	display: grid;
+	grid-template-rows: auto auto auto;
+}
+
+/* Haut : plan (gauche) / social (droite) */
+.site-footer__top{
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: var(--space-2xl);
+	align-items: start;
+}
+
+/* Blocs */
+.site-footer__block{
+	display: grid;
+	gap: var(--space-md);
+}
+
+/* Social aligné à gauche dans sa colonne */
+.site-footer__block--social{
+	justify-items: start;
+	text-align: left;
+}
+
+.footer-title{
+	margin: 0;
+	color: var(--color-bg);
+	font-size: 1.05rem;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+	20.1) Liens du plan du site
+   ========================================================= */
+.footer-nav a{
+	color: var(--footer-link);
+	text-decoration: none;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible{
+	color: var(--footer-link-hover);
+	text-decoration: none;
+}
+
+.footer-nav--inline{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: var(--space-sm);
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer-nav--inline li{
+	display: flex;
+	align-items: center;
+}
+
+.footer-nav--inline li:not(:last-child)::after{
+	content: "|";
+	margin-left: var(--space-sm);
+	color: var(--footer-muted);
+}
+
+
+/* =========================================================
+	20.2) Séparateur + copyright
+   ========================================================= */
+.site-footer__separator{
+	margin: var(--space-xl) auto var(--space-lg);
+	width: 60%;
+	max-width: var(--max-page);
+}
+
+.site-footer__copyright{
+	margin: 0;
+	justify-self: center;
+	text-align: center;
+
+	color: var(--color-bg);
+	font-size: 0.875rem;
+	width: 100%;
+}
+
+
+/* =========================================================
+	20.3) Social icons (footer)
+   ========================================================= */
+
+/* Layout footer : alignement des icônes */
+.site-footer .social-icons{
+	display: flex;
+	gap: var(--space-md);
+	align-items: center;
+}
+
+/* Sécurité : si certains liens n'ont pas la classe .social-icon */
+.site-footer .social-icons a{
+	text-decoration: none;
+}
+
+
+/* =========================================================
+	21) Page clean
+   ========================================================= */
+/* Appliquer la classe "page-clean" sur <body> pour désactiver les décors. */
+body.page-clean::before{
+	opacity: 0;
+	visibility: hidden;
+}
+
+body.page-clean header::before{
+	opacity: 0;
+	visibility: hidden;
+}
+
+body.page-clean .nav-bento{
+	background-color: var(--color-surface);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+
+/* =========================================================
+	22) Responsive
+   ========================================================= */
+
+/* 22.1) Tablet (≥ 48rem / 768px) */
+@media (min-width: 48rem){
+	h1{ font-size: 3.5rem; }
+	h2{ font-size: 2.5rem; }
+
+	.a-propos-layout{
+		grid-template-columns: 1fr 21.875rem; /* 350px */
+		align-items: start;
+	}
+
+	.projets-grid{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.piliers-grid{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.valeurs-grid{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.atelier-grid{
+		grid-template-columns: repeat(2, minmax(0, 32.5rem)); /* 520px */
+		justify-content: center;
+	}
+
+	.veille-soft-wrapper{
+		grid-template-columns: repeat(2, minmax(0, 26.25rem)); /* ~420px */
+		justify-content: center;
+	}
+
+	.experiences-grid{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.contact-container{
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* 22.2) Desktop (≥ 64rem / 1024px) */
+@media (min-width: 64rem){
+	.projets-grid{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.valeurs-grid{
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* 22.3) Mobile (≤ 47.9375rem) */
+@media (max-width: 47.9375rem){
+	/* Navigation */
+	.nav-container{
+		padding: 0 var(--space-md);
+	}
+
+	.nav-burger{
+		display: inline-flex;
+	}
+
+	.nav-right{
+		display: none;
+		position: absolute;
+		top: calc(100% + var(--space-sm));
+		left: 0;
+		right: 0;
+
+		flex-direction: column;
+		gap: 0;
+
+		background-color: var(--color-surface);
+		border: 1px solid var(--border-faint);
+		border-radius: var(--radius-md);
+		padding: var(--space-sm);
+	}
+
+	.nav-right a{
+		display: block;
+		padding: var(--space-sm) var(--space-md);
+		border-radius: var(--radius-md);
+	}
+
+	.nav-bento.nav-open .nav-right{
+		display: flex;
+	}
+
+	/* Footer */
+	.site-footer__top{
+		grid-template-columns: 1fr;
+		gap: var(--space-xl);
+	}
+
+	.footer-nav--inline{
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: var(--space-sm);
+	}
+
+	.footer-nav--inline li:not(:last-child)::after{
+		content: none;
+	}
+
+	.footer-nav--inline a{
+		display: inline-block;
+		padding: var(--space-xs) 0;
+	}
+
+	.site-footer__block--social{
+		justify-items: start;
+		text-align: left;
+	}
+}
+
+
+/* =========================================================
+	23) Reduced motion
+   ========================================================= */
+
+/* Accessibilité : réduction des animations si demandé */
+@media (prefers-reduced-motion: reduce){
+	html{
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after{
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.point-clignotant{
+		animation: none;
+		opacity: 1;
+	}
+}
+
+
+/* =========================================================
+	24) Focus visible
+   ========================================================= */
+:where(*:focus-visible){
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}

@@ -1,15 +1,813 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>My Portfolio</title>
-</head>
-<body>
-  <h1>Hello, I am [Your Name]</h1>
-  <p>This is my portfolio.</p>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portfolio de Stephan V., étudiant en DEUST Webmaster & Métiers de l'Internet à Toulouse. Webdesign/UI, création de contenu et communication digitale.">
+	<meta name="keywords" content="portfolio, webmaster, webdesign, UI/UX, création de contenu, community management, communication digitale, Toulouse, Occitanie">
+	<title>Stephan V. — Webmaster junior &amp; créateur digital</title>
 
-  <p>
-    <a href="travaux.html">See my projects</a>
-  </p>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@300;400;500;600&display=swap"
+	>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="styles.css">
+	
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "@id": "https://stephan-vqn.github.io/portfolio/#person",
+		  "name": "Stephan V.",
+		  "jobTitle": "Webmaster, Community manager",
+		  "address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Toulouse",
+			"addressRegion": "Occitanie",
+			"addressCountry": "FR"
+		  },
+		  "url": "https://stephan-vqn.github.io/portfolio/",
+		  "mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://stephan-vqn.github.io/portfolio/"
+		  },
+		  "sameAs": [
+			"https://github.com/stephan-vqn",
+			"https://www.linkedin.com/in/stephan-v/"
+		  ]
+		}
+		</script>
+
+</head>
+
+	<!-- HEADER: Navigation principale -->
+	<header id="top" class="reveal">
+		<nav class="nav-bento" aria-label="Navigation principale">
+			<div class="nav-container">
+				<button
+					class="nav-burger"
+					type="button"
+					aria-label="Ouvrir le menu"
+					aria-controls="primary-nav"
+					aria-expanded="false"
+				>
+					<i class="fas fa-bars" aria-hidden="true"></i>
+				</button>
+
+				<a class="nav-left" href="#top" aria-label="Accueil (haut de page)">
+					<div class="logo">S.</div>
+					<div class="logo-text">PORTFOLIO</div>
+				</a>
+
+				<ul class="nav-right" id="primary-nav">
+					<li><a href="#top">Accueil</a></li>
+					<li><a href="#a-propos">À propos</a></li>
+					<li><a href="#projets">Projets</a></li>
+					<li><a href="#competences">Compétences</a></li>
+					<li><a href="#parcours">Parcours</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- MAIN: Contenu principal -->
+	<main id="main-content">
+		<!-- SECTION: Hero -->
+		<section id="hero" class="reveal" aria-labelledby="hero-title">
+			<div class="hero-container">
+				<h1 id="hero-title">Stephan V.</h1>
+				<p class="hero-subtitle">Étudiant Webmaster &amp; Métiers de l'internet</p>
+				<p class="hero-accroche">J'accompagne la conception de projets numériques, avec une attention particulière portée à l'identité visuelle et à la dimension humaine.</p>
+
+				<div class="hero-cta">
+					<a href="#projets" class="btn btn-primary">
+						Voir mes travaux
+						<i class="fas fa-chevron-down" aria-hidden="true"></i>
+					</a>
+
+					<a href="#contact" class="btn btn-secondary">
+						Me contacter
+						<i class="fas fa-comment" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION: À propos -->
+		<section id="a-propos" class="reveal" aria-labelledby="a-propos-title">
+			<div class="section-content">
+				<div class="a-propos-layout">
+					<div class="a-propos-text">
+						<h2 id="a-propos-title">Créer des espaces numériques pensés pour l'humain.</h2>
+						<h3>Salut, je suis Stephan !</h3>
+						<p>Étudiant en DEUST Webmaster &amp; Métiers de l'Internet, j'oriente mon parcours vers le webdesign UI/UX, la communication digitale et la création de contenus.</p>
+						<p>Issu d'un parcours en sciences humaines, je développe une approche attentive aux usages, aux comportements et à l'expérience utilisateur.</p>
+						<p>J'aborde le web comme un espace d'expérimentation et d'idées, dans une démarche créative, où les dimensions visuelles et narratives dialoguent avec la technique pour donner du sens.</p>
+
+						<h4 class="social-title">Retrouvez moi sur les réseaux</h4>
+						<div class="social-icons" aria-label="Réseaux sociaux">
+							<a href="https://www.linkedin.com/in/stephan-v/" aria-label="LinkedIn" class="social-icon">
+								<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+							</a>
+							<a href="https://github.com/stephan-vqn" aria-label="GitHub" class="social-icon">
+								<i class="fab fa-github" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="a-propos-photo">
+						<img
+							src="./media/img/main-image.png"
+							alt="Photo de profil de Stephan V."
+							class="photo-profil"
+							loading="lazy"
+							decoding="async"
+						>
+					</div>
+				</div>
+
+				<div class="card-stage reveal">
+					<div class="card-stage-header">
+						<div class="icon-briefcase">
+							<i class="fas fa-briefcase" aria-hidden="true"></i>
+						</div>
+					</div>
+
+					<h3>Recherche de stage</h3>
+					<p>Je souhaite rejoindre une équipe pour contribuer à des projets et évoluer en compétences.</p>
+
+					<ul class="chips">
+						<li>Communication digitale</li>
+						<li>Création de contenus</li>
+						<li>Webdesign UI/UX</li>
+					</ul>
+
+					<div class="infos-pratiques">
+						<div class="info-item">
+							<i class="fas fa-calendar-alt" aria-hidden="true"></i>
+							<span>Du 11 mai au 21 juin 2026</span>
+						</div>
+
+						<div class="info-item">
+							<i class="fas fa-clock" aria-hidden="true"></i>
+							<span>140 heures</span>
+						</div>
+
+						<div class="info-item">
+							<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+							<span>Toulouse, Occitanie (31)</span>
+						</div>
+					</div>
+
+					<div class="card-cta">
+						<a href="#contact" class="btn btn-primary">
+							Me contacter
+							<i class="fas fa-comment" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION: Sélection de travaux -->
+		<section id="projets" class="reveal" aria-labelledby="projets-title">
+		  <div class="section-content">
+			<h2 id="projets-title">Sélection de travaux</h2>
+			<p class="section-subtitle">Réalisations, expérimentations et travaux menés.</p>
+
+			<div class="projets-grid">
+			  <article class="card-projet reveal" aria-labelledby="projet-1-title">
+				<div class="projet-placeholder" aria-hidden="true">
+				  <img
+					src="media/img/img_projet1.png"
+					alt=""
+					loading="lazy"
+					decoding="async"
+				  >
+				  <span class="sr-only">Photo projet</span>
+				</div>
+
+				<div class="projet-content">
+				  <p class="projet-type">Webmastering</p>
+				  <h3 class="projet-titre" id="projet-1-title">Minisite • Hosting</h3>
+				  <p class="projet-objectif">Projet pédagogique. Conception et hébergement d'un minisite web personnel.</p>
+				  <ul class="chips">
+					<li>HTML5</li>
+					<li>CSS3</li>
+					<li>Hébergement web</li>
+				  </ul>
+				  <div class="projet-cta">
+					<a href="projets.html" class="btn btn-secondary">Voir le projet</a>
+				  </div>
+				</div>
+			  </article>
+
+			  <article class="card-projet reveal" aria-labelledby="projet-2-title">
+				<div class="projet-placeholder" aria-hidden="true">
+				  <img
+					src="media/img/img_projet2.png"
+					alt=""
+					loading="lazy"
+					decoding="async"
+				  >
+				  <span class="sr-only">Photo projet</span>
+				</div>
+
+				<div class="projet-content">
+				  <p class="projet-type">Webmastering</p>
+				  <h3 class="projet-titre" id="projet-2-title">Blog Wix</h3>
+				  <p class="projet-objectif">Projet pédagogique. Création et rédaction pour le web d'un blog personnel avec une charte graphique.</p>
+				  <ul class="chips">
+					<li>Rédaction web</li>
+					<li>SEO</li>
+					<li>Identité visuelle</li>
+				  </ul>
+				  <div class="projet-cta">
+					<a href="projets.html" class="btn btn-secondary">Voir le projet</a>
+				  </div>
+				</div>
+			  </article>
+
+			  <article class="card-projet reveal" aria-labelledby="projet-3-title">
+				<div class="badge-en-cours">
+				  <i class="fas fa-hourglass-half" aria-hidden="true"></i> Projet en cours
+				</div>
+
+				<div class="projet-placeholder" aria-hidden="true">
+				  <img
+					src="media/img/img_projet3.png"
+					alt=""
+					loading="lazy"
+					decoding="async"
+				  >
+				  <span class="sr-only">Photo projet</span>
+				</div>
+
+				<div class="projet-content">
+				  <p class="projet-type">Community Management</p>
+				  <h3 class="projet-titre" id="projet-3-title">Carnets de voyage • Instagram</h3>
+				  <p class="projet-objectif">Projet personnel. Création d'un compte Instagram dédié à la randonnée et au patrimoine culturel.</p>
+				  <ul class="chips">
+					<li>Photographie</li>
+					<li>Social Media</li>
+				  </ul>
+				  <div class="projet-cta">
+					<a href="projets.html" class="btn btn-secondary">Voir le projet</a>
+				  </div>
+				</div>
+			  </article>
+			</div>
+
+			<div class="section-cta">
+			  <a href="projets.html" class="btn btn-primary">
+				Découvrir le portfolio
+				<i class="fas fa-chevron-right" aria-hidden="true"></i>
+			  </a>
+			</div>
+		  </div>
+		</section>
+
+
+		<!-- SECTION: Piliers / Valeurs -->
+		<section id="piliers" class="reveal" aria-labelledby="piliers-title">
+			<div class="section-content">
+				<h2 id="piliers-title">Mes piliers</h2>
+				<p class="section-subtitle">Mes domaines clés et mon horizon.</p>
+
+				<div class="piliers-grid">
+					<article class="card-pilier reveal">
+						<div class="pilier-icon">
+							<i class="fas fa-desktop" aria-hidden="true"></i>
+						</div>
+						<h3>Webmastering</h3>
+						<p>Organisation, mise en ligne et suivi de sites web simples, en veillant à la cohérence des pages et à la fiabilité technique.</p>
+						<ul class="chips">
+							<li>HTML5</li>
+							<li>CSS3</li>
+							<li>Gestion des CMS</li>
+						</ul>
+					</article>
+
+					<article class="card-pilier reveal">
+						<div class="pilier-icon">
+							<i class="fas fa-drafting-compass" aria-hidden="true"></i>
+						</div>
+						<h3>Webdesign</h3>
+						<p>Conception de sites web visuellement attractifs, pensés pour offrir une expérience utilisateur fluide et intuitive.</p>
+						<ul class="chips">
+							<li>Charte graphique</li>
+							<li>Accessibilité</li>
+							<li>Responsive</li>
+						</ul>
+					</article>
+
+					<article class="card-pilier reveal">
+						<div class="pilier-icon">
+							<i class="fas fa-bullhorn" aria-hidden="true"></i>
+						</div>
+						<h3>Community Management</h3>
+						<p>Réalisation de contenus et stratégie numérique, pour structurer et animer une présence en ligne.</p>
+						<ul class="chips">
+							<li>Storytelling visuel</li>
+							<li>Rédaction web</li>
+							<li>Stratégie de communication</li>
+						</ul>
+					</article>
+				</div>
+
+				<div class="valeurs-grid">
+					<article class="card-valeur reveal">
+						<div class="valeur-icon">
+							<i class="fas fa-eye" aria-hidden="true"></i>
+						</div>
+						<h3>Ma vision</h3>
+						<p>Le web comme un espace à parcourir. Je privilégie des interfaces pensées pour guider sans saturer, informer sans épuiser.</p>
+					</article>
+
+					<article class="card-valeur reveal">
+						<div class="valeur-icon">
+							<i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+						</div>
+						<h3>Ma valeur ajoutée</h3>
+						<p>Une approche nourrie par la psychologie et la sociologie : je conçois en pensant aux usages, aux comportements et aux émotions.</p>
+					</article>
+
+					<article class="card-valeur reveal">
+						<div class="valeur-icon">
+							<i class="fas fa-shapes" aria-hidden="true"></i>
+						</div>
+						<h3>Mon approche</h3>
+						<p>Le numérique comme atelier créatif : j'expérimente, j'itère, je raconte. Recherche d'un équilibre entre esthétique et fonction, entre impact visuel et expérience fluide.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION: Compétences -->
+		<section id="competences" class="reveal" aria-labelledby="competences-title">
+			<div class="section-content">
+				<h2 id="competences-title">Compétences</h2>
+				<p class="section-subtitle">Points d'appui, ressources et outils mobilisées.</p>
+
+				<div class="atelier-section reveal">
+					<h3>Mon atelier numérique</h3>
+
+					<div class="atelier-grid">
+						<article class="card-atelier reveal">
+							<div class="atelier-header">
+								<i class="fas fa-globe" aria-hidden="true"></i>
+								<h4>CMS &amp; No-Code</h4>
+							</div>
+
+							<ul class="outils-list">
+								<li>
+									<img
+										src="https://commons.wikimedia.org/wiki/Special:FilePath/WordPress_blue_logo.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">WordPress</span>
+										<span class="outil-desc">Gestion de sites dynamiques</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Wix_logo_png.png"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Wix</span>
+										<span class="outil-desc">Sites vitrines</span>
+									</div>
+								</li>
+							</ul>
+						</article>
+
+						<article class="card-atelier reveal">
+							<div class="atelier-header">
+								<i class="fas fa-code" aria-hidden="true"></i>
+								<h4>Bases du Développement Web</h4>
+							</div>
+
+							<ul class="outils-list">
+								<li>
+									<img
+										src="https://www.w3.org/html/logo/downloads/HTML5_Badge.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">HTML5</span>
+										<span class="outil-desc">Structure</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">CSS3</span>
+										<span class="outil-desc">Style et mise en forme</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Visual Studio Code</span>
+										<span class="outil-desc">Éditeur de code</span>
+									</div>
+								</li>
+							</ul>
+						</article>
+
+						<article class="card-atelier reveal">
+							<div class="atelier-header">
+								<i class="fas fa-photo-video" aria-hidden="true"></i>
+								<h4>Création de contenus</h4>
+							</div>
+
+							<ul class="outils-list">
+								<li>
+									<img
+										src="https://commons.wikimedia.org/wiki/Special:FilePath/Instagram_logo_2016.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Instagram</span>
+										<span class="outil-desc">Gestion de contenus en ligne</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://brandlogovector.com/wp-content/uploads/2022/02/Canva-Icon-Logo.png"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Canva</span>
+										<span class="outil-desc">Conception visuelle et graphique</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://images.seeklogo.com/logo-png/43/1/capcut-logo-png_seeklogo-437025.png"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">CapCut</span>
+										<span class="outil-desc">Montages vidéo simple</span>
+									</div>
+								</li>
+							</ul>
+						</article>
+
+						<article class="card-atelier reveal">
+							<div class="atelier-header">
+								<i class="fas fa-tasks" aria-hidden="true"></i>
+								<h4>Gestion &amp; Productivité</h4>
+							</div>
+
+							<ul class="outils-list">
+								<li>
+									<img
+										src="https://commons.wikimedia.org/wiki/Special:FilePath/Notion-logo.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Notion</span>
+										<span class="outil-desc">Organisation et gestion de projets</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://commons.wikimedia.org/wiki/Special:FilePath/ChatGPT_logo.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">ChatGPT</span>
+										<span class="outil-desc">Usage raisonné et prompt optimisés</span>
+									</div>
+								</li>
+
+								<li>
+									<img
+										src="https://cdn.worldvectorlogo.com/logos/claude-logo.svg"
+										class="logo-outil"
+										alt=""
+										loading="lazy"
+										decoding="async"
+									>
+									<div class="outil-info">
+										<span class="outil-nom">Claude</span>
+										<span class="outil-desc">Assistance code et débogage</span>
+									</div>
+								</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+
+				<div class="veille-soft-wrapper veille-soft-wrapper--tight">
+					<article class="card-soft card-soft--veille reveal">
+						<h3>En veille</h3>
+						<p class="subsection-subtitle">Suivre, s'informer et anticiper.</p>
+						<ul class="chips">
+							<li>Bases de l'optimisation SEO</li>
+							<li>Accessibilité</li>
+							<li>Design graphique</li>
+						</ul>
+					</article>
+
+					<article class="card-soft card-soft--soft-stack reveal">
+						<div class="soft-block">
+							<h4>Soft skills</h4>
+							<ul class="chips">
+								<li>Créativité</li>
+								<li>Adaptabilité</li>
+								<li>Capacité analytique</li>
+								<li>Sens critique</li>
+							</ul>
+						</div>
+
+						<span class="soft-divider--horizontal" aria-hidden="true"></span>
+
+						<div class="soft-block">
+							<h4>Compétences transversales</h4>
+							<ul class="chips">
+								<li>Traitement de l'information</li>
+								<li>Synthèse documentaire</li>
+								<li>Rédaction</li>
+								<li>Approche psychosociale</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION: Parcours -->
+		<section id="parcours" class="reveal" aria-labelledby="parcours-title">
+			<div class="section-content">
+				<h2 id="parcours-title">Parcours</h2>
+
+				<div class="formation-section reveal">
+					<h3>Formation</h3>
+
+					<div class="timeline">
+						<article class="timeline-item reveal">
+							<div class="timeline-badge">2025 – En cours</div>
+							<div class="timeline-content">
+								<h4>DEUST Webmaster &amp; Métiers de l'Internet</h4>
+								<p class="timeline-contexte">
+									<span>Entièrement en distanciel</span>
+								</p>
+								<p class="etablissement">
+									<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+									<a href="https://www.unilim.fr" target="_blank" rel="noopener noreferrer">Université de Limoges</a>
+								</p>
+							</div>
+						</article>
+
+						<article class="timeline-item reveal">
+							<div class="timeline-badge">2016 – 2019</div>
+							<div class="timeline-content">
+								<h4>Licence de Sociologie</h4>
+								<p class="etablissement">
+									<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+									<a href="https://www.univ-tlse2.fr" target="_blank" rel="noopener noreferrer">Université Toulouse Jean Jaurès</a>
+								</p>
+							</div>
+						</article>
+
+						<article class="timeline-item reveal">
+							<div class="timeline-badge">2015 – 2017</div>
+							<div class="timeline-content">
+								<h4>Licence de Psychologie</h4>
+								<p class="etablissement">
+									<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+									<a href="https://www.univ-tlse2.fr" target="_blank" rel="noopener noreferrer">Université Toulouse Jean Jaurès</a>
+								</p>
+							</div>
+						</article>
+					</div>
+				</div>
+
+				<div class="experiences-section reveal">
+					<h3>Expériences</h3>
+
+					<div class="experiences-grid">
+						<article class="card-experience reveal">
+							<div class="exp-badge">Juil. 2025</div>
+							<div class="exp-header">
+								<i class="fas fa-share-alt exp-icon" aria-hidden="true"></i>
+								<h4>Community manager</h4>
+							</div>
+							<p class="exp-contexte">Stage d'immersion</p>
+							<p class="exp-entreprise">CREA2F</p>
+							<p class="exp-lieu">
+								<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+								Ramonville-Saint-Agne (31)
+							</p>
+							<p class="exp-missions-titre">Missions :</p>
+							<ul class="exp-missions">
+								<li>Contenus visuels (stories, carrousels, vidéos) avec Canva et CapCut.</li>
+								<li>Rédaction de publications Instagram selon une charte visuelle et éditoriale.</li>
+								<li>Initiation aux stratégies de communication digitale : reporting, ciblage d'audience, publicité et Suite Meta Business.</li>
+							</ul>
+						</article>
+
+						<article class="card-experience reveal">
+							<div class="exp-badge">Sept. 2024 – 2025</div>
+							<div class="exp-header">
+								<i class="fas fa-compass exp-icon" aria-hidden="true"></i>
+								<h4>Préparatoire Générale</h4>
+							</div>
+							<p class="exp-contexte">Stage de formation professionnelle</p>
+							<p class="exp-entreprise">Union Cépiere Robert Monnier</p>
+							<p class="exp-lieu">
+								<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+								Toulouse (31)
+							</p>
+							<p class="exp-missions-titre">Missions :</p>
+							<ul class="exp-missions">
+								<li>Bilan personnel et professionnel (compétences, savoirs être).</li>
+								<li>Enquêtes métiers et recherches documentaires.</li>
+								<li>Immersions en entreprise, mises en situations et prospection.</li>
+							</ul>
+						</article>
+
+						<article class="card-experience reveal">
+							<div class="exp-badge">Déc. 2019 – Juil. 2020</div>
+							<div class="exp-header">
+								<i class="fas fa-hands-helping exp-icon" aria-hidden="true"></i>
+								<h4>Animateur socioculturel</h4>
+							</div>
+							<p class="exp-contexte">Service civique</p>
+							<p class="exp-entreprise">Espace social du Grand-Ramier</p>
+							<p class="exp-lieu">
+								<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+								Toulouse (31)
+							</p>
+							<p class="exp-missions-titre">Missions :</p>
+							<ul class="exp-missions">
+								<li>Animation d'ateliers et d'activités culturelles.</li>
+								<li>Accueil et orientation des usagers.</li>
+								<li>Conception de supports de communication via logiciel PAO.</li>
+								<li>Prise de photos et vidéos pour événements socioculturels.</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION: Contact -->
+		<section id="contact" class="reveal" aria-labelledby="contact-title">
+			<div class="section-content">
+				<h2 id="contact-title">Contact</h2>
+				<p class="section-subtitle">Initier le dialogue</p>
+
+				<div class="contact-wrapper">
+					<div class="contact-container">
+						<div class="contact-left contact-center">
+							<h3>On échange ?</h3>
+							<p>
+								Une idée à partager, une proposition de stage,
+								ou une collaboration : je suis à votre écoute.
+							</p>
+
+							<h4 class="social-title">Retrouvez moi sur les réseaux</h4>
+							<div class="social-icons contact-social" aria-label="Réseaux sociaux">
+								<a href="https://www.linkedin.com/in/stephan-v/" aria-label="LinkedIn" class="social-icon">
+									<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+								</a>
+								<a href="https://github.com/stephan-vqn" aria-label="GitHub" class="social-icon">
+									<i class="fab fa-github" aria-hidden="true"></i>
+								</a>
+							</div>
+
+							<a href="mailto:vbnx541vl@mozmail.com?subject=J%27ai%20visit%C3%A9%20votre%20Portfolio" class="btn btn-primary" aria-label="Envoyer un email : J'ai visité votre Portfolio">
+							  Me laisser un message
+							  <i class="fas fa-envelope" aria-hidden="true"></i>
+							</a>
+
+						</div>
+
+						<div class="contact-right">
+							<div
+								class="widget-card reveal"
+								id="weather-widget"
+								data-lat="43.6047"
+								data-lon="1.4442"
+								data-timezone="Europe/Paris"
+								role="region"
+								aria-label="Météo — Toulouse"
+							>
+								<div class="weather-header">
+									<p class="widget-title weather-title">Météo</p>
+
+									<p class="weather-location">
+										<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+										<span>Toulouse</span>
+									</p>
+								</div>
+
+								<!-- Contenu dynamique rempli par le JS -->
+								<div class="weather-content" aria-live="polite">
+									<p class="placeholder-text">Chargement…</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer__inner">
+			<div class="site-footer__top">
+				<div class="site-footer__block">
+					<h3 class="footer-title">Plan du site</h3>
+
+					<ul class="footer-nav footer-nav--inline" aria-label="Plan du site">
+						<li><a href="#top">Accueil</a></li>
+						<li><a href="#a-propos">À propos</a></li>
+						<li><a href="#projets">Projets</a></li>
+						<li><a href="#competences">Compétences</a></li>
+						<li><a href="#parcours">Parcours</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+
+				<div class="site-footer__block site-footer__block--social">
+					<h3 class="footer-title">Social</h3>
+
+					<div class="social-icons" aria-label="Réseaux sociaux">
+						<a href="https://www.linkedin.com/in/stephan-v/" aria-label="LinkedIn" class="social-icon">
+							<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+						</a>
+						<a href="https://github.com/stephan-vqn" aria-label="GitHub" class="social-icon">
+							<i class="fab fa-github" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="separator separator--horizontal site-footer__separator" aria-hidden="true"></div>
+
+			<p class="site-footer__copyright">
+				© 2026 Stephan V. — Tous droits réservés.
+			</p>
+		</div>
+	</footer>
+
+	<!-- JavaScript -->
+	<script src="script.js" defer></script>
+
 </body>
 </html>
