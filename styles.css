@@ -2007,7 +2007,7 @@ body.page-clean .nav-bento{
 	
 	/* Barre de nav sur mobile : moins transparente */
 	.nav-bento{
-		background-color: color-mix(in srgb, var(--color-bg) 96%, transparent);
+		background-color: var(--color-bg);
 		opacity: 1; 
 		-webkit-backdrop-filter: none;
 		backdrop-filter: none;
