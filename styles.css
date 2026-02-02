@@ -1445,8 +1445,9 @@ section{
 }
 
 .veille-soft-wrapper > .card-soft:not(.card-soft--soft-stack) .chips li{
-	width: 65%;
-	max-width: 22rem;
+	width: auto;          /* ✅ prend la largeur du contenu */
+	max-width: none;      /* ✅ enlève la limite artificielle */
+	flex: 0 0 auto;       /* ✅ évite tout étirement flex */
 	justify-content: center;
 }
 
@@ -2002,6 +2003,14 @@ body.page-clean .nav-bento{
 	/* Navigation */
 	.nav-container{
 		padding: 0 var(--space-md);
+	}
+	
+	/* Barre de nav sur mobile : moins transparente */
+	.nav-bento{
+		background-color: color-mix(in srgb, var(--color-bg) 96%, transparent);
+		opacity: 1; 
+		-webkit-backdrop-filter: none;
+		backdrop-filter: none;
 	}
 
 	.nav-burger{
