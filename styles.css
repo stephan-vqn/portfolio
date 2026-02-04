@@ -161,6 +161,119 @@
 	--header-grid: rgba(59, 53, 51, 0.03);
 }
 
+/* =========================================================
+	Dark theme (soft charcoal) – override variables
+	Usage: <html data-theme="dark"> ... </html>
+   ========================================================= */
+html[data-theme="dark"]{
+	/* Couleurs */
+	--color-bg: #151412;
+
+	--color-text: #E7E1DA;
+	--color-text-muted: #B4ADA6;
+
+	--color-accent: #C07A62;
+	--color-accent-hover: #A96552;
+
+	--color-secondary: #6F8A7A;
+	--color-secondary-hover: #5D7668;
+
+	--color-surface: #1D1B19;
+	--color-surface-alt: #24211E;
+	--color-media-bg: #1A1816;
+
+	--color-border-soft: #3A3532;
+	--color-border-strong: #5B5450;
+
+	/* Ombres & effets (adaptés au dark theme) */
+	--shadow-hover: 0 0.5rem 1rem #00000073;
+	--shadow-focus: 0 0 0 0.25rem #C07A6240;
+	--shadow-soft: 0 0.25rem 0.75rem #00000059;
+
+	--border-faint: #E7E1DA1A;
+
+	/* Social buttons */
+	--social-bg: var(--color-surface-alt);
+	--social-fg: var(--color-text-muted);
+	--social-border: var(--color-border-soft);
+
+	--social-bg-hover: var(--color-accent);
+	--social-fg-hover: var(--color-bg);
+	--social-border-hover: var(--color-accent);
+
+	/* Décor de fond (body::before) */
+	--bg-fade-strong: #151412F5;
+	--bg-fade-none: #15141200;
+	--bg-dot: #E7E1DA09;
+	--bg-grid: #E7E1DA08;
+
+	/* Décor header (header::before) */
+	--header-fade-strong: #24211EEB;
+	--header-fade-none: #24211E00;
+	--header-dot: #E7E1DA08;
+	--header-grid: #E7E1DA08;
+}
+
+/* =========================================================
+	Dark overrides (composants) – minimal
+   ========================================================= */
+
+/* 1) CTA : texte toujours beige off-white (light --color-bg), y compris au hover */
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .btn-secondary,
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .btn-secondary:hover{
+	color: #F9F6F1;
+}
+
+html[data-theme="dark"] .btn-primary i,
+html[data-theme="dark"] .btn-secondary i,
+html[data-theme="dark"] .btn-primary:hover i,
+html[data-theme="dark"] .btn-secondary:hover i{
+	color: #F9F6F1;
+}
+
+/* 2) Footer : garder textes/bordures/séparateurs clairs (beige off-white), footer uniquement */
+html[data-theme="dark"] .site-footer{
+	color: #F9F6F1;
+
+	/* Tokens footer : basés sur le off-white du light theme */
+	--footer-link: #F9F6F1EB;			/* 92% */
+	--footer-link-hover: var(--color-accent);
+	--footer-muted: #F9F6F1A6;			/* 65% */
+
+	/* Social (footer) */
+	--social-fg: #F9F6F1;
+	--social-border: #F9F6F159;			/* 35% */
+
+	--social-bg-hover: #F9F6F1;
+	--social-fg-hover: var(--color-secondary);
+	--social-border-hover: #F9F6F18C;	/* 55% */
+
+	/* Séparateurs/bordures du footer (ex: .separator--horizontal) */
+	--color-border-soft: #F9F6F159;		/* 35% */
+}
+
+html[data-theme="dark"] .site-footer .footer-title,
+html[data-theme="dark"] .site-footer__copyright{
+	color: #F9F6F1;
+}
+
+/* 3) En thème dark : état activé du toggle = charcoal (surfaces), pas l’accent */
+html[data-theme="dark"] .theme-toggle[aria-pressed="true"]{
+	background: var(--color-surface-alt);
+	color: var(--color-text);
+	border-color: var(--color-border-strong);
+}
+
+html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:hover{
+	background: var(--color-surface);
+	color: var(--color-text);
+	border-color: var(--color-border-strong);
+}
+
+
+
 
 /* =========================================================
 	2) Reset & base
@@ -232,6 +345,7 @@ body::before{
 	background-position: center;
 }
 
+
 /* =========================================================
 	3) Typographie
    ========================================================= */
@@ -273,6 +387,12 @@ p{
 small{
 	font-size: 0.875rem;
 	color: var(--color-text-muted);
+}
+
+
+/* Emphase */
+.text-emphasis{
+    font-weight: 600;
 }
 
 
@@ -428,6 +548,80 @@ a:hover{
 	transform: translateY(-0.0625rem);
 }
 
+/* =========================================================
+	Bouton thème (Light/Dark)
+   ========================================================= */
+
+.theme-toggle{
+	width: var(--social-size);
+	height: var(--social-size);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: var(--radius-full);
+	background: var(--color-surface);
+	color: var(--color-text-muted);
+
+	border: 1px solid var(--color-border-soft);
+	box-shadow: var(--shadow-soft);
+
+	cursor: pointer;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+
+	transition:
+		transform var(--transition-fast),
+		background var(--transition-fast),
+		color var(--transition-fast),
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast);
+}
+
+.theme-toggle i{
+	font-size: 1rem;
+	line-height: 1;
+}
+
+/* Hover + focus (mutualisé) */
+.theme-toggle:hover,
+.theme-toggle:focus-visible{
+	background: var(--color-surface-alt);
+	color: var(--color-text);
+	border-color: var(--color-border-soft);
+	box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle:hover{
+	transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible{
+	outline: none;
+	box-shadow: var(--shadow-focus);
+}
+
+/* État "activé" (light) */
+.theme-toggle[aria-pressed="true"]{
+	background: var(--color-accent);
+	color: var(--color-bg);
+	border-color: var(--color-accent);
+}
+
+.theme-toggle[aria-pressed="true"]:hover{
+	background: var(--color-accent-hover);
+	border-color: var(--color-accent-hover);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+	.theme-toggle{
+		transition: none;
+	}
+	.theme-toggle:hover{
+		transform: none;
+	}
+}
 
 /* =========================================================
 	6) Composants réutilisables
@@ -589,19 +783,35 @@ main{
 /* 6.6) Icônes */
 .nav-burger i{ font-size: 1.25rem; }
 
-.atelier-header i{
-	font-size: 1.75rem;
-	color: var(--color-accent);
+/* Couleur d'accent mutualisée */
+:where(
+	.atelier-header i,
+	.contact-localisation i,
+	.info-item i,
+	.card-soft--veille .veille-header i
+){
+  color: var(--color-accent);
 }
+
+/* Exceptions */
+.atelier-header i{ font-size: 1.75rem; }
 
 .contact-localisation i{
 	font-size: 1.25rem;
-	color: var(--color-accent);
 	margin-top: var(--space-xs);
 }
 
-.info-item i{
-	color: var(--color-accent);
+/* Veille : aligner icône + titre */
+.card-soft--veille .veille-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5rem;
+}
+
+.card-soft--veille .veille-header i{
+	font-size: 1.25em;
+	line-height: 1;
 }
 
 /* Icônes outils (images) */
@@ -692,6 +902,15 @@ main{
 	}
 }
 
+@supports (animation-timeline: view()){
+	header.reveal{
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+}
+
+
 /* =========================================================
 	8) Header
    ========================================================= */
@@ -743,10 +962,10 @@ header::before{
 /* 9.1) Variables locales (nav) */
 .nav-bento{
 	/* Fallback si color-mix n’est pas supporté */
-	--nav-bg: rgba(249, 246, 241, 0.86);
+	--nav-bg: rgba(240, 236, 232, 0.86);
 
 	/* Version basée sur la variable (même rendu) */
-	--nav-bg: color-mix(in srgb, var(--color-bg) 86%, transparent);
+	--nav-bg: color-mix(in srgb, var(--color-surface) 86%, transparent);
 }
 
 
@@ -1747,7 +1966,15 @@ section{
 }
 
 .weather-title{
-	margin: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--weather-gap);
+}
+
+.weather-title i{
+    color: var(--color-text-muted);
+    font-size: 1rem;
 }
 
 .weather-location{
@@ -1774,6 +2001,80 @@ section{
 .placeholder-text{
 	color: var(--color-text-muted);
 	font-size: 0.875rem;
+}
+
+/* 19.2.5) “Résumé” (condition + icône) */
+.weather-summary{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.weather-condition{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.weather-hero-icon{
+    flex: 0 0 auto;
+    line-height: 1;
+	font-size: 1.7rem;
+}
+
+.weather-hero-icon i{
+    font-size: 2rem;
+    color: var(--color-accent);
+}
+
+/* 19.2.6) Liste d'infos (icônes + libellé + valeur) */
+.weather-stats{
+    margin: 0;
+}
+
+.weather-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--weather-gap);
+    padding: 0.35rem 0;
+}
+
+.weather-row dt{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--weather-gap);
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.weather-row dt i{
+    color: var(--color-text-muted);
+    width: 1.125rem;
+    text-align: center;
+}
+
+.weather-row dd{
+    margin: 0;
+    font-weight: 700;
+}
+
+/* 19.2.7) Pied : mise à jour automatique */
+.weather-footnote{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--weather-gap);
+    width: 100%;
+    margin: var(--space-sm) 0 0 0;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border-soft);
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
 }
 
 
@@ -2007,10 +2308,9 @@ body.page-clean .nav-bento{
 	
 	/* Barre de nav sur mobile : moins transparente */
 	.nav-bento{
-		background-color: var(--color-bg);
-		opacity: 1; 
-		-webkit-backdrop-filter: none;
-		backdrop-filter: none;
+		background-color: var(--nav-bg);
+		-webkit-backdrop-filter: blur(0.875rem) saturate(1.1);
+		backdrop-filter: blur(0.875rem) saturate(1.1);
 	}
 
 	.nav-burger{

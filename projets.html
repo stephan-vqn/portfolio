@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Portfolio de Stephan V., étudiant en DEUST Webmaster & Métiers de l'Internet à Toulouse. Webdesign/UI, création de contenu et communication digitale.">
+	<meta name="description" content="Portfolio de Stephan V., étudiant en DEUST Webmaster & Métiers de l'Internet à Toulouse. Junior orienté Webdesign UI/UX, création de contenu et communication digitale.">
 	<meta name="keywords" content="portfolio, webmaster, webdesign, UI/UX, création de contenu, community management, communication digitale, Toulouse, Occitanie">
-	<title>Stephan V. — Webmaster junior &amp; créateur digital</title>
+	<title>Stephan V. — Webmaster junior | Webdesign UI/UX &amp; Communication digitale à Toulouse</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
 		  "@type": "Person",
 		  "@id": "https://stephan-vqn.github.io/portfolio/#person",
 		  "name": "Stephan V.",
-		  "jobTitle": "Webmaster, Community manager",
+		  "jobTitle": "Webmaster junior",
 		  "address": {
 			"@type": "PostalAddress",
 			"addressLocality": "Toulouse",
@@ -56,7 +56,7 @@
 					aria-controls="primary-nav"
 					aria-expanded="false"
 				>
-					<i class="fas fa-bars" aria-hidden="true"></i>
+				<i class="fas fa-bars" aria-hidden="true"></i>
 				</button>
 
 				<a class="nav-left" href="#top" aria-label="Projets (haut de page)">
@@ -65,13 +65,20 @@
 				</a>
 
 				<ul class="nav-right" id="primary-nav">
-				  <li><a href="index.html#top">Accueil</a></li>
-				  <li><a href="index.html#a-propos">À propos</a></li>
-				  <li><a href="projets.html#top">Projets</a></li>
-				  <li><a href="index.html#competences">Compétences</a></li>
-				  <li><a href="index.html#parcours">Parcours</a></li>
-				  <li><a href="projets.html#contact">Contact</a></li>
+					<li><a href="index.html#top">Accueil</a></li>
+					<li><a href="index.html#a-propos">À propos</a></li>
+					<li><a href="projets.html#top">Projets</a></li>
+					<li><a href="index.html#competences">Compétences</a></li>
+					<li><a href="index.html#parcours">Parcours</a></li>
+					<li><a href="projets.html#contact">Contact</a></li>
 				</ul>
+
+				<button class="theme-toggle" type="button"
+					data-theme-toggle
+					aria-label="Activer le thème sombre"
+					aria-pressed="false">
+					<i class="fa-solid fa-moon" aria-hidden="true"></i>
+				</button>
 			</div>
 		</nav>
 	</header>
@@ -102,7 +109,7 @@
 	  <div class="section-content">
 		<h2 id="projets-title">Détails des projets</h2>
 		<p class="section-subtitle">
-		  Accès rapide : <a href="#projet-1">Minisite • Hosting</a> | <a href="#projet-2">Blog Wix</a> | <a href="#projet-3">Carnets de voyage • Instagram</a>
+		  Accès rapide : <a href="#projet-1">Mini-site • Hosting</a> | <a href="#projet-2">Blog Wix</a> | <a href="#projet-3">Carnets de voyage • Instagram</a>
 		</p>
 	  </div>
 	</section>
@@ -123,7 +130,7 @@
 
 		  <div class="projet-content">
 			<p class="projet-type">Webmastering</p>
-			<h3 class="projet-titre" id="projet-1-title">Minisite • Hosting</h3>
+			<h3 class="projet-titre" id="projet-1-title">Mini-site • Hosting</h3>
 
 			<p class="projet-objectif">
 			  Projet pédagogique dans le cadre du DEUST Webmaster &amp; Métiers de l'Internet.<br>
@@ -391,12 +398,15 @@
 				aria-label="Météo — Toulouse"
 			  >
 				<div class="weather-header">
-				  <p class="widget-title weather-title">Météo</p>
+					<p class="widget-title weather-title">
+						<i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+						Météo
+						</p>
 
-				  <p class="weather-location">
-					<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-					<span>Toulouse</span>
-				  </p>
+					<p class="weather-location">
+						<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+						<span>Toulouse, Occitanie</span>
+						</p>
 				</div>
 
 				<!-- Contenu dynamique rempli par le JS -->
