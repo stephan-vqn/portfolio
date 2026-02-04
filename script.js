@@ -128,7 +128,7 @@ function initThemeToggle() {
 
   // 1) Thème initial : localStorage sinon système
   const saved = getSavedTheme();
-  const initial = saved === 'dark' || saved === 'light' ? saved : 'light'();
+  const initial = saved === 'dark' || saved === 'light' ? saved : 'light';
   applyTheme(initial, { persist: false });
 
   // 2) Toggle au clic
